@@ -32,11 +32,25 @@ body {
     height: 100%;
     overflow: auto;
     white-space: nowrap;
-    
+    position: relative;
 }
 
 .horizontal-page {
     display: inline-block;
     height: 100%;
     width: 100vw;
+}
+
+.nextArrow{
+    color: white;
+    position: fixed;
+    top: 50%;
+    right: 0;
+}
+
+.backArrow{
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 0;
 }
