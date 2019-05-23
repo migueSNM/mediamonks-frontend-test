@@ -14,7 +14,10 @@ html, body {
 }
 
 body {
-
+    background-image: url('../images/background.jpg');
+    background-attachment: scroll;
+    background-size: cover;
+    width: 620%;
 }
 
 /*-------------------------------------*/
@@ -23,22 +26,19 @@ body {
 
 .wrapper {
     height: 100%;
-    width: 100%;
-    background-image: url(../images/background.jpg);
-    overflow-y: hidden;
-    overflow-x: scroll;
 }
 
 .horizontal-container { 
     height: 100%;
     overflow: auto;
     white-space: nowrap;
+    
 }
 
 .horizontal-page {
     display: inline-block;
     height: 100%;
-    width: 100%;
+    width: 100vw;
 }
 
 
