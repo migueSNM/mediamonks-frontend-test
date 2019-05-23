@@ -1,0 +1,44 @@
+
+/*-------------------------------------*/
+/* BASIC SETUP */
+/*-------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+
+}
+
+/*-------------------------------------*/
+/* SCREEN REUSABLE */
+/*-------------------------------------*/
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/background.jpg);
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.horizontal-container { 
+    height: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.horizontal-page {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+
