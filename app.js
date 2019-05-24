@@ -18,7 +18,12 @@ function smoothScroll(target,duration){
         var timeElapsed = currentTime - startTime;
         var run = ease(timeElapsed, startPosition, distance, duration);
         window.scrollTo(run, 0);
-        if(timeElapsed < duration) requestAnimationFrame(animation);
+        if(timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        } else {
+            //  TODO toggle text visibility depending on which section i am standing. remove hardcoding
+            showTextFromSection('page1')
+        }
     }
 
     function ease(t, b, c, d){
@@ -29,6 +34,15 @@ function smoothScroll(target,duration){
     }
 
     requestAnimationFrame(animation);
+}
+
+function showTextFromSection(section){
+    var toggleSection = document.getElementById(section);
+    if (toggleSection.style.opacity === 0) {
+        toggleSection.style.opacity = 1;
+      } else {
+        toggleSection.style.opacity = 0;
+      }
 }
 
 var nextArrow = document.querySelector('.nextArrow');
