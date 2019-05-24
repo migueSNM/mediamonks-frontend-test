@@ -1,7 +1,16 @@
-function smoothScroll(duration,moveNext){
-    var scrollWidth = document.querySelector('.horizontal-page').getBoundingClientRect().width;;
+function smoothScroll(target,duration){
     var startPosition = window.pageXOffset;
-    var distance = moveNext ? scrollWidth : -scrollWidth;
+    
+    var distance = 0;
+    if(target == 'NEXT'){
+        var scrollWidth = document.querySelector('.horizontal-page').getBoundingClientRect().width;
+        distance = scrollWidth;
+    } else if (target == 'BACK') {
+        var scrollWidth = document.querySelector('.horizontal-page').getBoundingClientRect().width;
+        distance = -scrollWidth;
+    } else {
+        distance = document.getElementById(target).getBoundingClientRect().x;
+    }
     var startTime = null;
 
     function animation(currentTime){
@@ -24,11 +33,23 @@ function smoothScroll(duration,moveNext){
 
 var nextArrow = document.querySelector('.nextArrow');
 var backArrow = document.querySelector('.backArrow');
+var mainNav = document.querySelector('.main-nav');
 
 nextArrow.addEventListener('click', function(){
-    smoothScroll(2000, true);
+    smoothScroll('NEXT', 2000);
 })
 
 backArrow.addEventListener('click', function(){
-    smoothScroll(2000, false);
+    smoothScroll('BACK', 2000);
+})
+
+mainNav.addEventListener('click', function(event){
+    var navigateTo = '';
+    if(event.target.id < 8){
+        navigateTo = `page${event.target.id}`;
+    } else {
+        navigateTo = 'page7';
+    }
+    smoothScroll(navigateTo, 2000, false);
+
 })
