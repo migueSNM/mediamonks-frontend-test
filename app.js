@@ -1,9 +1,7 @@
-function smoothScroll(target,duration){
-    var target = document.querySelector(target);
-    //  TODO fix this
-    var targetPosition = target.getBoundingClientRect().x;
+function smoothScroll(duration,moveNext){
+    var scrollWidth = document.querySelector('.horizontal-page').getBoundingClientRect().width;;
     var startPosition = window.pageXOffset;
-    var distance = targetPosition - startPosition;
+    var distance = moveNext ? scrollWidth : -scrollWidth;
     var startTime = null;
 
     function animation(currentTime){
@@ -24,32 +22,13 @@ function smoothScroll(target,duration){
     requestAnimationFrame(animation);
 }
 
-
-var page1 = document.querySelector('.page1');
-var page2 = document.querySelector('.page2');
 var nextArrow = document.querySelector('.nextArrow');
 var backArrow = document.querySelector('.backArrow');
-var currentSection = 0;
 
-page1.addEventListener('click', function(){
-    smoothScroll('.page2', 2000);
-});
-
-page2.addEventListener('click', function(){
-    smoothScroll('.page1', 2000);
+nextArrow.addEventListener('click', function(){
+    smoothScroll(2000, true);
 })
 
-//  TODO reuse arrows code
-nextArrow.addEventListener('click', function(currentSection){
-    //  TODO remove hardcode
-    var nextSection = `.page2`
-    smoothScroll(nextSection, 2000);
-    currentSection++;
-})
-
-backArrow.addEventListener('click', function(currentSection){
-    //  TODO remove hardcode
-    var nextSection = `.page1`
-    smoothScroll(nextSection, 2000);
-    currentSection++;
+backArrow.addEventListener('click', function(){
+    smoothScroll(2000, false);
 })

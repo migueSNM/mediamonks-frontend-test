@@ -38,7 +38,8 @@ body {
 .horizontal-page {
     display: inline-block;
     height: 100%;
-    width: 100vw;
+    width: 12.5%;
+    color: white;
 }
 
 .nextArrow{
