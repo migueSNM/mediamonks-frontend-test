@@ -17,6 +17,8 @@ body {
     background-image: linear-gradient(#00000080, #00000080), url('../images/background.jpg');
     background-attachment: scroll;
     background-size: cover;
+    /* comentar overflow para mostrar scroll horizontal*/
+    overflow: hidden; 
     width: 620%;
 }
 
