@@ -1,3 +1,37 @@
+var nextArrow = document.querySelector('.nextArrow');
+var backArrow = document.querySelector('.backArrow');
+var mainNav = document.querySelector('.main-nav');
+var currentSection = 0;
+var previousSection = 0;
+toggleTextFromSection('page0');
+
+nextArrow.addEventListener('click', function(){
+    previousSection = currentSection;
+    currentSection++;
+    toggleTextFromSection(`page${previousSection}`)
+    smoothScroll('NEXT', 2000);
+})
+
+backArrow.addEventListener('click', function(){
+    previousSection = currentSection;
+    currentSection--;
+    toggleTextFromSection(`page${previousSection}`)
+    smoothScroll('BACK', 2000);
+})
+
+mainNav.addEventListener('click', function(event){
+    previousSection = currentSection;
+    toggleTextFromSection(`page${previousSection}`)
+    currentSection = event.target.id;
+    var navigateTo = '';
+    if(event.target.id < 8){
+        navigateTo = `page${event.target.id}`;
+    } else {
+        navigateTo = 'page7';
+    }
+    smoothScroll(navigateTo, 2000, false);
+})
+
 function smoothScroll(target,duration){
     var startPosition = window.pageXOffset;
     
@@ -21,8 +55,8 @@ function smoothScroll(target,duration){
         if(timeElapsed < duration) {
             requestAnimationFrame(animation);
         } else {
-            //  TODO toggle text visibility depending on which section i am standing. remove hardcoding
-            showTextFromSection('page1')
+            previousSection = currentSection;
+            toggleTextFromSection(`page${currentSection}`);
         }
     }
 
@@ -36,34 +70,11 @@ function smoothScroll(target,duration){
     requestAnimationFrame(animation);
 }
 
-function showTextFromSection(section){
+function toggleTextFromSection(section){
     var toggleSection = document.getElementById(section);
-    if (toggleSection.style.opacity === 0) {
-        toggleSection.style.opacity = 1;
-      } else {
+    if(toggleSection.style.opacity == 1) {
         toggleSection.style.opacity = 0;
-      }
-}
-
-var nextArrow = document.querySelector('.nextArrow');
-var backArrow = document.querySelector('.backArrow');
-var mainNav = document.querySelector('.main-nav');
-
-nextArrow.addEventListener('click', function(){
-    smoothScroll('NEXT', 2000);
-})
-
-backArrow.addEventListener('click', function(){
-    smoothScroll('BACK', 2000);
-})
-
-mainNav.addEventListener('click', function(event){
-    var navigateTo = '';
-    if(event.target.id < 8){
-        navigateTo = `page${event.target.id}`;
     } else {
-        navigateTo = 'page7';
+        toggleSection.style.opacity = 1;
     }
-    smoothScroll(navigateTo, 2000, false);
-
-})
+}
