@@ -82,14 +82,16 @@ body {
     color: white;
     position: fixed;
     top: 50%;
-    right: 0;
+    right: 10px;
+    font-size: 200%;
 }
 
 .backArrow{
     color: white;
     position: fixed;
     top: 50%;
-    left: 0;
+    left: 10px;
+    font-size: 200%;
 }
 
 .main-nav {
@@ -99,26 +101,31 @@ body {
     left: 0;
     float: right;
     list-style: none;
+    border: 1px white dotted;
+    line-height: 15px;
+    font-size: 50%;
 }
 
 .main-nav li {
     display: inline-block;
+    border-right: 1px white dotted;
+    padding: 0 5px;
+}
+
+.main-nav li:last-child {
+    border-right: none;
 }
 
 .main-nav li a:link,
 .main-nav li a:visited {
     color: #fff;
     text-decoration: none;
-    text-transform: uppercase; 
-    font-size: 90%;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.2s;
 
 }
 
 .main-nav li a:hover,
 .main-nav li a:active {
-    border-bottom: 2px solid #e67e22;
+    /* background-color: white; */
 }
 
 /*-------------------------------------*/
