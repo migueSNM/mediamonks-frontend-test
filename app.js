@@ -40,6 +40,14 @@ mainNav.addEventListener('click', function(event){
     smoothScroll(navigateTo, 2000);
 })
 
+//  TODO fake loader
+setTimeout(() => {
+    document.getElementById('loader').style.opacity = 0;
+    setTimeout(() => {
+        document.getElementById('loader-wrapper').style.opacity = 0;
+      }, 2000);
+  }, 1000);
+
 function smoothScroll(target,duration){
     var startPosition = window.pageXOffset;
     

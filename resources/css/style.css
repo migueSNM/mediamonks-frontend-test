@@ -49,7 +49,26 @@ body {
 }
 
 /*-------------------------------------*/
-/* SCREENS */
+/* LOADER */
+/*-------------------------------------*/
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #222222;
+    z-index: 3;
+    transition: opacity 1s;
+}
+
+#loader {
+    z-index: 4;
+    transition: opacity 1s;
+}
+
+/*-------------------------------------*/
+/* PAGE CONTENT */
 /*-------------------------------------*/
 
 .wrapper {
