@@ -44,7 +44,6 @@ body {
     background-image: linear-gradient(#00000080, #00000080), url('../images/background.jpg');
     background-attachment: scroll;
     background-size: cover;
-    /* comentar overflow para mostrar scroll horizontal*/
     overflow: hidden; 
     width: 620%;
 }
@@ -68,37 +67,44 @@ body {
 .horizontal-page {
     display: inline-block;
     height: 100%;
-    width: 12.5%;
+    width: 11%;
     color: white;
     opacity: 0;
     transition: opacity 1s;
+}
+
+.logo{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    fill: white;
 }
 
 /*-------------------------------------*/
 /* NAVIGATION */
 /*-------------------------------------*/
 
-.nextArrow{
+.nextArrow,
+.backArrow {
     color: white;
     position: fixed;
-    top: 50%;
-    right: 10px;
+    top: 38%;
     font-size: 200%;
 }
 
-.backArrow{
-    color: white;
-    position: fixed;
-    top: 50%;
+.nextArrow {
+    right: 10px;
+}
+
+.backArrow {
     left: 10px;
-    font-size: 200%;
 }
 
 .main-nav {
     color: white;
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: 20px;
+    left: 20px;
     float: right;
     list-style: none;
     border: 1px white dotted;
@@ -133,11 +139,27 @@ body {
 /*-------------------------------------*/
 
 .title {
-    font-size: 250%;
+    font-size: 200%;
     text-decoration: underline;
-    /*TODO work with this*/
-    margin-top: -80px;
-    margin-left: 20px;
+    position: absolute;
+}
+
+.upper-left {
+    top: 10px;
+    margin-left: 30px;
+}
+
+.center-left {
+    margin-left: 41px;
+    top: 37%;
+}
+
+.center-right {
+    float: right;
+    position: relative;
+    top: 37%;
+    right: -39%;
+    text-align: right;
 }
 
 .footer {
@@ -145,4 +167,8 @@ body {
     position: absolute;
     bottom: 90px;
     left: 20px;
+}
+
+#page9 {
+    display: none;
 }
