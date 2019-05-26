@@ -9,13 +9,20 @@ nextArrow.addEventListener('click', function(){
     previousSection = currentSection;
     currentSection++;
     toggleTextFromSection(`page${previousSection}`)
-    smoothScroll('NEXT', 2000);
+    if(currentSection < 9) {
+        smoothScroll('NEXT', 2000);
+    } else {
+        navigateTo = `page${currentSection}`;
+        smoothScroll(navigateTo, 2000);
+        openNav();
+    }
 })
 
 backArrow.addEventListener('click', function(){
     previousSection = currentSection;
     currentSection--;
     toggleTextFromSection(`page${previousSection}`)
+    closeNav();
     smoothScroll('BACK', 2000);
 })
 
@@ -24,12 +31,13 @@ mainNav.addEventListener('click', function(event){
     toggleTextFromSection(`page${previousSection}`)
     currentSection = event.target.id;
     var navigateTo = '';
+    closeNav();
     if(event.target.id < 8){
         navigateTo = `page${event.target.id}`;
     } else {
         navigateTo = 'page7';
     }
-    smoothScroll(navigateTo, 2000, false);
+    smoothScroll(navigateTo, 2000);
 })
 
 function smoothScroll(target,duration){
@@ -57,6 +65,9 @@ function smoothScroll(target,duration){
         } else {
             previousSection = currentSection;
             toggleTextFromSection(`page${currentSection}`);
+            if(currentSection == 9){
+                openNav();
+            }
         }
     }
 
@@ -75,11 +86,15 @@ function toggleTextFromSection(section){
         section = 'page7';
     }
     var toggleSection = document.getElementById(section);
-    if(toggleSection.style.opacity == 1) {
-        toggleSection.style.opacity = 0;
-    } else {
-        toggleSection.style.opacity = 1;
+    
+    if(currentSection != 9){
+        if(toggleSection.style.opacity == 1) {
+            toggleSection.style.opacity = 0;
+        } else {
+            toggleSection.style.opacity = 1;
+        }
     }
+
     if(currentSection == 8){
         document.getElementById('page7').innerHTML = `<div class="title center-left">
                                                         TEMPORARY<br>SACRIFICE BRINGS<br>LASTING RESULTS
@@ -89,4 +104,14 @@ function toggleTextFromSection(section){
                                                         TAKE PRIDE IN YOUR WORK<br>BUT DO NOT<br>SEEK PRAISE
                                                       </div>`;
     }
+}
+
+function openNav() {
+    document.getElementById("page9").style.width = "90%";
+    document.getElementById("main").style.marginRight = "90%";
+}
+
+function closeNav() {
+    document.getElementById("page9").style.width = "0";
+    document.getElementById("main").style.marginRight= "0";
 }
