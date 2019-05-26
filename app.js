@@ -46,7 +46,7 @@ setTimeout(() => {
     setTimeout(() => {
         document.getElementById('loader-wrapper').style.opacity = 0;
       }, 2000);
-  }, 1000);
+  }, 5000);
 
 function smoothScroll(target,duration){
     var startPosition = window.pageXOffset;

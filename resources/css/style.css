@@ -57,7 +57,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background: #222222;
+    background: black;
     z-index: 3;
     transition: opacity 1s;
 }
@@ -65,7 +65,60 @@ body {
 #loader {
     z-index: 4;
     transition: opacity 1s;
+    margin-top: 25%;
 }
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+#monk {
+	overflow: hidden;
+	transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+    text-align: center;
+}
+
+#loader-text {
+    color: white;
+    font-style: italic;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 75%;
+    transform: translate(-20px);
+}
+
+#loader-text {
+    animation: text 3s;
+}
+
+@keyframes text {
+    0%{
+        font-size: 0%;
+        transform: translate(0);
+    }
+    30%{
+        font-size: 75%;
+        transform: translate(0);
+    }
+    90%{
+        font-size: 75%;
+        transform: translate(0);
+    }
+    100%{
+        font-size: 75%;
+        transform: translate(-20px);
+    }
+}
+
 
 /*-------------------------------------*/
 /* PAGE CONTENT */
