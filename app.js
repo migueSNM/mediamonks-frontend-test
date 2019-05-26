@@ -71,10 +71,22 @@ function smoothScroll(target,duration){
 }
 
 function toggleTextFromSection(section){
+    if(currentSection == 8){
+        section = 'page7';
+    }
     var toggleSection = document.getElementById(section);
     if(toggleSection.style.opacity == 1) {
         toggleSection.style.opacity = 0;
     } else {
         toggleSection.style.opacity = 1;
+    }
+    if(currentSection == 8){
+        document.getElementById('page7').innerHTML = `<div class="title center-left">
+                                                        TEMPORARY<br>SACRIFICE BRINGS<br>LASTING RESULTS
+                                                      </div>`;
+    } else if (currentSection == 7){
+        document.getElementById('page7').innerHTML = `<div class="title center-left">
+                                                        TAKE PRIDE IN YOUR WORK<br>BUT DO NOT<br>SEEK PRAISE
+                                                      </div>`;
     }
 }
