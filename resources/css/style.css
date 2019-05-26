@@ -116,7 +116,11 @@ body {
 .main-nav li {
     display: inline-block;
     border-right: 1px white dotted;
-    padding: 0 5px;
+    padding: 0px 5px;
+    line-height: 10px;
+    /* background-color: white; */
+    background-clip: padding-box;
+    transition: background-color 0.2s;
 }
 
 .main-nav li:last-child {
@@ -127,12 +131,17 @@ body {
 .main-nav li a:visited {
     color: #fff;
     text-decoration: none;
-
 }
 
-.main-nav li a:hover,
-.main-nav li a:active {
-    /* background-color: white; */
+#steps-footer {
+    color: white;
+    position: fixed;
+    bottom: 20px;
+    left: 215px;
+    float: right;
+    font-size: 50%;
+    padding-bottom: 3px;
+    transition: opacity 1s;
 }
 
 /*-------------------------------------*/

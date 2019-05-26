@@ -86,12 +86,20 @@ function toggleTextFromSection(section){
         section = 'page7';
     }
     var toggleSection = document.getElementById(section);
+    var stepsFooter = document.getElementById('steps-footer');
     
     if(currentSection != 9){
         if(toggleSection.style.opacity == 1) {
             toggleSection.style.opacity = 0;
+            stepsFooter.style.opacity = 0;
         } else {
+            if(currentSection != 0 && currentSection != 9) {
+                stepsFooter.innerHTML = `Step ${currentSection} out of 8 on the path to digital enlightenment.`
+            } else {
+                stepsFooter.innerHTML = '';
+            }
             toggleSection.style.opacity = 1;
+            stepsFooter.style.opacity = 1;
         }
     }
 
