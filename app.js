@@ -116,7 +116,7 @@ setTimeout(() => {
         document.getElementById('loader-wrapper').style.opacity = 0;
         document.getElementById('loader-wrapper').style.visibility = 'hidden';
     }, 2000);
-}, 1000);
+}, 3000);
 
 function smoothScroll(target, duration) {
     var startPosition = window.pageXOffset;
@@ -157,6 +157,12 @@ function smoothScroll(target, duration) {
     }
 
     requestAnimationFrame(animation);
+
+    if(currentSection == 0 || currentSection == 9){
+        backArrow.style.visibility = 'hidden';
+    } else {
+        backArrow.style.visibility = 'visible';
+    }
 }
 
 function toggleTextFromSection(section) {
@@ -181,6 +187,7 @@ function toggleTextFromSection(section) {
         }
     }
 
+    //  secciones 7 y 8 usan la misma pantalla con un texto diferente
     if (currentSection == 8) {
         document.getElementById('page7').innerHTML = `<div class="title center-left">
                                                         TEMPORARY<br>SACRIFICE BRINGS<br>LASTING RESULTS

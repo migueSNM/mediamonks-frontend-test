@@ -177,6 +177,7 @@ body {
     position: fixed;
     top: 38%;
     font-size: 200%;
+    transition: visibility 1s;
 }
 
 .nextArrow {
