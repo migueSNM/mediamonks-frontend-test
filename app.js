@@ -8,11 +8,17 @@ toggleTextFromSection('page0');
 nextArrow.addEventListener('click', function(){
     previousSection = currentSection;
     currentSection++;
+    document.getElementById(previousSection).style.backgroundColor = '';
+    document.getElementById(currentSection).style.backgroundColor = 'white';
     toggleTextFromSection(`page${previousSection}`)
-    if(currentSection < 9) {
-        smoothScroll('NEXT', 2000);
-    } else {
+    if(currentSection < 8) {
         navigateTo = `page${currentSection}`;
+        smoothScroll(navigateTo, 2000);
+    } else if (currentSection == 8){
+        navigateTo = `page7`;
+        smoothScroll(navigateTo, 2000);
+    } else {
+        navigateTo = `page7`;
         smoothScroll(navigateTo, 2000);
         openNav();
     }
@@ -21,6 +27,8 @@ nextArrow.addEventListener('click', function(){
 backArrow.addEventListener('click', function(){
     previousSection = currentSection;
     currentSection--;
+    document.getElementById(previousSection).style.backgroundColor = '';
+    document.getElementById(currentSection).style.backgroundColor = 'white';
     toggleTextFromSection(`page${previousSection}`)
     closeNav();
     smoothScroll('BACK', 2000);
@@ -30,6 +38,8 @@ mainNav.addEventListener('click', function(event){
     previousSection = currentSection;
     toggleTextFromSection(`page${previousSection}`)
     currentSection = event.target.id;
+    document.getElementById(previousSection).style.backgroundColor = '';
+    document.getElementById(currentSection).style.backgroundColor = 'white';
     var navigateTo = '';
     closeNav();
     if(event.target.id < 8){
@@ -47,7 +57,7 @@ setTimeout(() => {
         document.getElementById('loader-wrapper').style.opacity = 0;
         document.getElementById('loader-wrapper').style.visibility = 'hidden';
       }, 2000);
-  }, 5000);
+  }, 1000);
 
 function smoothScroll(target,duration){
     var startPosition = window.pageXOffset;

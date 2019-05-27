@@ -12,19 +12,19 @@
 @font-face {
     font-family: "klavika";
     src: url("/resources/font/klavika-bold-webfont.woff") format('woff');
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 @font-face {
     font-family: "klavika";
     src: url("/resources/font/klavika-light-webfont.woff") format('woff');
-    font-weight: 200;
+    font-weight: lighter;
 }
 
 @font-face {
     font-family: "klavika";
     src: url("/resources/font/klavika-medium-webfont.woff") format('woff');
-    font-weight: 300;
+    font-weight: bold;
 }
 
 * {
@@ -36,7 +36,7 @@
 html, body {
     height: 100%;
     font-size: 20px;
-    font-weight: 200;
+    font-weight: lighter;
     font-family: 'klavika';
 }
 
