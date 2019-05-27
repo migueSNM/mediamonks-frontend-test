@@ -83,39 +83,53 @@ body {
 #monk {
 	overflow: hidden;
 	transform: translatey(0px);
-    animation: float 6s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
     text-align: center;
 }
 
-#loader-text {
+.loader-text-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#loader-text,
+#loader-text2 {
     color: white;
     font-style: italic;
     text-align: center;
     margin-top: 35px;
     font-size: 75%;
-    transform: translate(-20px);
 }
 
 #loader-text {
     animation: text 3s;
 }
 
+#loader-text2 {
+    animation: text2 3s;
+}
+
 @keyframes text {
     0%{
         font-size: 0%;
-        transform: translate(0);
     }
     30%{
         font-size: 75%;
-        transform: translate(0);
     }
-    90%{
-        font-size: 75%;
-        transform: translate(0);
+}
+
+@keyframes text2 {
+    0%{
+        font-size: 0%;
+        left: -100px;
+    }
+    80%{
+        font-size: 0%;
+        left: -100px;
     }
     100%{
         font-size: 75%;
-        transform: translate(-20px);
+        left: 0;
     }
 }
 
