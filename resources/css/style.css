@@ -59,7 +59,8 @@ body {
     height: 100%;
     background: black;
     z-index: 3;
-    transition: opacity 1s;
+    visibility:visible;
+    transition: opacity 1s, visibility 1s;
 }
 
 #loader {

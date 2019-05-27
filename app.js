@@ -45,6 +45,7 @@ setTimeout(() => {
     document.getElementById('loader').style.opacity = 0;
     setTimeout(() => {
         document.getElementById('loader-wrapper').style.opacity = 0;
+        document.getElementById('loader-wrapper').style.visibility = 'hidden';
       }, 2000);
   }, 5000);
 
